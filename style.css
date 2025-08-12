@@ -13,7 +13,9 @@
 
 /* Set full height for the body */
 body, html {
-    height: 100%;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
     font-family: font_wedding;
     font-weight: 400;
     font-size: 15px;
@@ -26,16 +28,7 @@ body, html {
 
 /* Background container */
 .background-container {
-    position: relative;
-    height: 100%;
-    background-image: url('/bg.png'); /* Path to your image */
-    background-size: cover;
-    background-position: 50%; /* 0 for horizontal position (left), 80% for vertical position */
-    background-repeat: no-repeat;
-}
 
-/* Overlay for yellowish filter */
-.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -45,27 +38,41 @@ body, html {
     z-index: 1;
 }
 
+/* Overlay for yellowish filter */
+.overlay {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background-image: url('/bg.png'); /* Path to your image */
+    background-size: cover;
+    background-position: center ; 
+    background-repeat: no-repeat;
+}
+
 /* Content centered */
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
     color: #333333;;
     text-align: center;
-    z-index: 2;
+    z-index: 5 ;
 }
 
 /* Title */
 h1 {
-    font-size: 3em;
-    margin-bottom: 30px;
+    font-size: 50px;
+    margin-bottom: 60px;
 }
 
 /* Paragraph */
 p {
     font-size: 1.5em;
-    margin-bottom: 30px;
+    margin-bottom:60px;
 }
 
 /* Button styling */
@@ -77,11 +84,15 @@ p {
 
 .btn {
     padding: 15px 30px;
-    font-size: 1.2em;
+    font-size: 15px;
     border: none;
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-family: font_wedding;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .btn-vei {
