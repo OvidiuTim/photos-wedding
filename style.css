@@ -1,0 +1,99 @@
+/* Apply basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: font_wedding;
+    src: url('/uncode-icons.woff2') format('woff2');
+    font-display: swap;
+  }
+
+/* Set full height for the body */
+body, html {
+    height: 100%;
+    font-family: font_wedding;
+    font-weight: 400;
+    font-size: 15px;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
+/* Body */
+
+/* Background container */
+.background-container {
+    position: relative;
+    height: 100%;
+    background-image: url('/bg.png'); /* Path to your image */
+    background-size: cover;
+    background-position: 50%; /* 0 for horizontal position (left), 80% for vertical position */
+    background-repeat: no-repeat;
+}
+
+/* Overlay for yellowish filter */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f769; /* Yellowish filter */
+    z-index: 1;
+}
+
+/* Content centered */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333333;;
+    text-align: center;
+    z-index: 2;
+}
+
+/* Title */
+h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+/* Paragraph */
+p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* Button styling */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-vei {
+    background-color: #a4b69e;
+    color: #333333;;
+}
+
+.btn-incarca {
+    background-color: #a4b69e;
+    color: #333333;;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
