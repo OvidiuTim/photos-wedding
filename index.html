@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Photo Page</title>
+    <title>Andrei & Catalina</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        #loader {
+          display: none;                 /* ascuns inițial */
+          position: fixed;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0,0,0,0.6);
+          z-index: 9999;
+          /* nu mai pune display:flex aici */
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 1.2rem;
+        }
+        #loader .spinner {
+          border: 8px solid #f3f3f3;
+          border-top: 8px solid #fff;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          animation: spin 1s linear infinite;
+          margin-bottom: 15px;
+        }
+    </style>
+        
 </head>
 <body>
     <div class="overlay"></div>
@@ -13,9 +43,76 @@
             <h1>Încarcă fotografiile pe care le-ai făcut!</h1>
             <p>Vrem să trăim din nou fiecare clipă a nunții prin ochii tăi.</p>
             <div class="buttons">
-                <button class="btn btn-incarca">Încarcă Poze</button>
+                <button class="btn btn-incarca">Încarcă poze</button>
             </div>
         </div>
     </div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div>Se încarcă pozele...</div>
+    </div>
+
+    <script>
+    const CLOUD_NAME   = "dt4t2o3sm";
+    const UPLOAD_PRESET= "wedding2026";
+    const FOLDER       = "wedding/test";
+
+    const btn = document.querySelector('button.btn.btn-incarca');
+    const loader = document.getElementById('loader');
+
+    // input invizibil pentru fișiere
+    const picker = document.createElement('input');
+    picker.type = 'file';
+    picker.multiple = true;
+    picker.accept = 'image/*,video/*';
+    picker.style.display = 'none';
+    document.body.appendChild(picker);
+
+    picker.addEventListener('change', async () => {
+      if (!picker.files || picker.files.length === 0) return;
+
+      btn.disabled = true;
+      loader.style.display = 'flex'; // arată loaderul
+
+      console.group('Cloudinary upload');
+
+      for (const file of picker.files) {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', UPLOAD_PRESET);
+        formData.append('folder', FOLDER);
+
+        console.log(`Încărcare: ${file.name} (${Math.round(file.size/1024)} KB)`);
+
+        try {
+          const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`, {
+            method: 'POST',
+            body: formData
+          });
+          const data = await res.json();
+
+          if (res.ok && data.secure_url) {
+            console.log(`✅ Upload reușit: ${file.name} → ${data.secure_url}`);
+          } else {
+            console.error(`❌ Eșec la ${file.name}:`, data.error || data);
+          }
+        } catch (err) {
+          console.error(`❌ Eroare rețea la ${file.name}:`, err);
+        }
+      }
+
+      console.groupEnd();
+      picker.value = '';
+
+      // după 0.5s trimite la pagina de mulțumire
+      setTimeout(() => {
+        window.location.href = "thank-you.html";
+      }, 500);
+    });
+
+    btn.addEventListener('click', () => picker.click());
+    </script>
 </body>
 </html>
