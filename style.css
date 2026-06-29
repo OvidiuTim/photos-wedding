@@ -187,6 +187,22 @@ button {
   stroke: var(--sage-dark);
 }
 
+.qr-frame {
+  display: inline-flex;
+  margin-top: 2px;
+  padding: 14px;
+  border: 1px solid rgba(152, 160, 123, 0.32);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(83, 74, 66, 0.12);
+}
+
+.qr-code {
+  display: block;
+  width: min(225px, 52vw);
+  height: auto;
+}
+
 .btn {
   position: relative;
   min-width: 220px;
