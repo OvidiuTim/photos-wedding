@@ -204,6 +204,7 @@ button {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.12em;
+  white-space: nowrap;
   text-transform: uppercase;
   transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -358,6 +359,9 @@ button {
   .btn {
     width: 100%;
     min-width: 0;
+    padding-inline: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
   }
 
   .success-card {
