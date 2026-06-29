@@ -155,7 +155,7 @@ button {
   max-width: 610px;
   color: var(--text-main);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 400;
   line-height: 1.08;
   text-wrap: balance;
@@ -373,5 +373,50 @@ button {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+
+
+
+@media (max-width: 640px) {
+  .photo-page {
+    align-items: center;
+    padding: 14px 8px;
+    background-position: 58% center;
+  }
+
+  .photo-page::after {
+    inset: 6px;
+  }
+
+  .photo-card {
+    width: 100%;
+    min-height: min(680px, calc(100svh - 28px));
+    padding: 44px 14px 42px;
+    border-radius: 20px;
+  }
+
+  .couple-name {
+    font-size: clamp(2.7rem, 14vw, 3.7rem);
+  }
+
+  .photo-card h1 {
+    max-width: 100%;
+    font-size: 1.8rem;
+    line-height: 1.12;
+  }
+
+  .intro-text {
+    max-width: 100%;
+    margin: 17px auto 25px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 18px;
   }
 }
