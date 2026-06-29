@@ -1,110 +1,377 @@
-/* Apply basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg-soft: #f7f2f1;
+  --sage: #98a07b;
+  --sage-dark: #747b5c;
+  --rose: #d89aa8;
+  --rose-dark: #b97889;
+  --text-main: #5f5a57;
+  --text-light: #8a817d;
+  --border: rgba(152, 160, 123, 0.22);
+  --shadow: 0 22px 60px rgba(83, 74, 66, 0.16);
 }
 
 @font-face {
-    font-family: font_wedding;
-    src: url('/uncode-icons.woff2') format('woff2');
-    font-display: swap;
-  }
-
-/* Set full height for the body */
-body, html {
-    width: 100%;
-    height: auto;
-    overflow-x: hidden;
-    font-family: font_wedding;
-    font-weight: 400;
-    font-size: 15px;
-    color: #333333;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-}
-/* Body */
-
-/* Background container */
-.background-container {
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f7f7f769; /* Yellowish filter */
-    z-index: 1;
+  font-family: "Melodrama";
+  src: url("wedding invite/wed-fonts/Melodrama-Regular.woff") format("woff");
+  font-display: swap;
 }
 
-/* Overlay for yellowish filter */
-.overlay {
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    background-image: url('bg.png');
-    background-size: cover;
-    background-position: center ; 
-    background-repeat: no-repeat;
+@font-face {
+  font-family: "Melodrama";
+  src: url("wedding invite/wed-fonts/Melodrama-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
 }
 
-/* Content centered */
-.content {
-    width: 80%;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: center;
-    color: #333333;;
-    text-align: center;
-    z-index: 5 ;
+@font-face {
+  font-family: "Aston Script";
+  src: url("wedding invite/wed-fonts/Aston-Script.woff") format("woff");
+  font-display: swap;
 }
 
-/* Title */
-h1 {
-    font-size: 50px;
-    margin-bottom: 60px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Paragraph */
-p {
-    font-size: 1.5em;
-    margin-bottom:60px;
+html,
+body {
+  min-height: 100%;
 }
 
-/* Button styling */
-.buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+body {
+  min-width: 320px;
+  background: var(--bg-soft);
+  color: var(--text-main);
+  font-family: "Montserrat", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+.photo-page {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 34px 20px;
+  background:
+    linear-gradient(rgba(247, 242, 241, 0.38), rgba(247, 242, 241, 0.58)),
+    url("wedding invite/wed-fonts/The-Wedding-House-Weddings-19.jpg") center / cover no-repeat;
+}
+
+.photo-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(247, 242, 241, 0.3)),
+    radial-gradient(circle at 50% 40%, transparent 25%, rgba(76, 66, 54, 0.12) 100%);
+}
+
+.photo-page::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+}
+
+.photo-card {
+  position: relative;
+  width: min(100%, 760px);
+  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 68px 62px 58px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.photo-card::before,
+.photo-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 72px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+.photo-card::before {
+  top: 31px;
+}
+
+.photo-card::after {
+  bottom: 31px;
+}
+
+.wedding-mark {
+  width: 140px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  color: var(--rose-dark);
+  font-family: "Melodrama", "Times New Roman", serif;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.couple-name {
+  color: var(--sage);
+  font-family: "Aston Script", cursive;
+  font-size: clamp(2.2rem, 8vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.ornament {
+  width: 70px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.photo-card h1 {
+  max-width: 610px;
+  color: var(--text-main);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.intro-text {
+  max-width: 530px;
+  margin: 22px auto 32px;
+  color: var(--text-main);
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.upload-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--text-light);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+}
+
+.upload-note svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--sage-dark);
 }
 
 .btn {
-    padding: 15px 30px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-family: font_wedding;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 1px;
+  position: relative;
+  min-width: 220px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--sage);
+  border-radius: 999px;
+  padding: 15px 30px;
+  background: var(--sage);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(116, 123, 92, 0.2);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.btn-vei {
-    background-color: #a4b69e;
-    color: #333333;;
-}
-
-.btn-incarca {
-    background-color: #a4b69e;
-    color: #333333;;
+.btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 
 .btn:hover {
-    opacity: 0.8;
+  background: var(--sage-dark);
+  box-shadow: 0 13px 28px rgba(116, 123, 92, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(216, 154, 168, 0.42);
+  outline-offset: 4px;
+}
+
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.success-card {
+  min-height: 560px;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(152, 160, 123, 0.42);
+  border-radius: 50%;
+  background: rgba(152, 160, 123, 0.1);
+}
+
+.success-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--sage-dark);
+}
+
+.success-card .intro-text {
+  margin-bottom: 34px;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: 24px;
+  background: rgba(49, 45, 41, 0.64);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.loader.is-visible {
+  display: grid;
+}
+
+.loader-card {
+  width: min(100%, 350px);
+  padding: 38px 28px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: var(--shadow);
+  color: var(--text-main);
+  text-align: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+  border: 3px solid rgba(152, 160, 123, 0.2);
+  border-top-color: var(--sage-dark);
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+}
+
+.loader-title {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.loader-status {
+  margin-top: 6px;
+  color: var(--text-light);
+  font-size: 0.84rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .photo-page {
+    align-items: center;
+    padding: 24px 16px;
+    background-position: 58% center;
+  }
+
+  .photo-page::after {
+    inset: 10px;
+  }
+
+  .photo-card {
+    min-height: min(680px, calc(100svh - 48px));
+    padding: 54px 24px 48px;
+    border-radius: 22px;
+  }
+
+  .wedding-mark {
+    width: 112px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow {
+    font-size: 0.76rem;
+  }
+
+  .couple-name {
+    font-size: clamp(3rem, 16vw, 4.15rem);
+  }
+
+  .ornament {
+    margin: 15px auto;
+  }
+
+  .photo-card h1 {
+    font-size: clamp(1.9rem, 10vw, 2.6rem);
+  }
+
+  .intro-text {
+    margin: 17px auto 25px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .success-card {
+    min-height: min(610px, calc(100svh - 48px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

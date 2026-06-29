@@ -1,28 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei&Catalina</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="overlay"></div>
-    <div class="background-container"> 
-        <div class="content">
-            <h1>Mulțumim! Pozele tale au fost încărcate cu succes!</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f2f1" />
+    <link rel="icon" href="wedding invite/wed-fonts/Asset 5.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mulțumim · Catalina &amp; Andrei</title>
+  </head>
+  <body>
+    <main class="photo-page">
+      <section class="photo-card success-card" aria-labelledby="page-title">
+        <img
+          class="wedding-mark"
+          src="wedding invite/wed-fonts/Asset 5.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <p class="eyebrow">Catalina &amp; Andrei</p>
 
-            <div class="buttons">
-                <button class="btn btn-incarca" >Încarcă mai multe poze</button>
-            </div>
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m6.5 12.5 3.5 3.5 7.5-8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         </div>
-    </div>
+
+        <h1 id="page-title">Mulțumim pentru amintirile împărtășite!</h1>
+        <p class="intro-text">
+          Fotografiile și videoclipurile tale au fost încărcate. Abia așteptăm
+          să retrăim această zi frumoasă prin ochii tăi.
+        </p>
+
+        <button class="btn btn-incarca" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Încarcă mai multe
+        </button>
+      </section>
+    </main>
 
     <script>
-        document.querySelector('.btn.btn-incarca').addEventListener('click', () => {
-            window.location.href = 'index.html';
-        });
-        </script>
-
-</body>
+      document.querySelector(".btn-incarca").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
 </html>
